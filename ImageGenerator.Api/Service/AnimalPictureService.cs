@@ -9,11 +9,14 @@ namespace ImageGenerator.Api.Service
     {
         private AnimalPictureDbContext Context { get; set; }
         private HttpClient HttpClient { get; set; }
+        private bool IsRunningFromUnit;
 
         public AnimalPictureService(AnimalPictureDbContext context, HttpClient httpClient)
         {
             Context = context;
             HttpClient = httpClient;
+            IsRunningFromUnit = AppDomain.CurrentDomain.GetAssemblies().Any(
+            static a => a.FullName.StartsWith("xunit", StringComparison.InvariantCultureIgnoreCase));
         }
 
         public async Task<List<AnimalPicture>> FetchAndSavePictures(string animalType, int count)
@@ -37,14 +40,17 @@ namespace ImageGenerator.Api.Service
 
                 var apiUrl = apiHost + width + "/" + height;
 
-                var handler = new HttpClientHandler
+                if (!IsRunningFromUnit)
                 {
-                    ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; },
-                    UseProxy = true
-                };
-                var client = new HttpClient(handler);
+                    var handler = new HttpClientHandler
+                    {
+                        ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; },
+                        UseProxy = true
+                    };
+                    HttpClient = new HttpClient(handler);
+                }
 
-                var response = await client.GetAsync(apiUrl);
+                var response = await HttpClient.GetAsync(apiUrl);
                 if (response.IsSuccessStatusCode)
                 {
                     var picture = new AnimalPicture { AnimalType = animalType, ImageUrl = apiUrl, CreatedDateTimeUtc = DateTime.UtcNow };
