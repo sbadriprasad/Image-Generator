@@ -1,6 +1,5 @@
 ﻿using ImageGenerator.Api.Model;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 
 namespace ImageGenerator.Api.Repository
 {

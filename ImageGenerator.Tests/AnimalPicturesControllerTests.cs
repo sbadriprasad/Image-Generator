@@ -3,11 +3,6 @@ using ImageGenerator.Api.Interfaces;
 using ImageGenerator.Api.Model;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ImageGenerator.Tests
 {

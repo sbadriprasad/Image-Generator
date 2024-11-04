@@ -1,12 +1,9 @@
+using ImageGenerator.Api.Extension;
 using ImageGenerator.Api.Interfaces;
 using ImageGenerator.Api.Repository;
 using ImageGenerator.Api.Service;
-using ImageGenerator.Api.Extension;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using static System.Net.Mime.MediaTypeNames;
-using System.Net.Http.Headers;
-using System.Net.Security;
 
 var builder = WebApplication.CreateBuilder(args);
 
