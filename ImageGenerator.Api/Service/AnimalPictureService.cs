@@ -37,7 +37,14 @@ namespace ImageGenerator.Api.Service
 
                 var apiUrl = apiHost + width + "/" + height;
 
-                var response = await HttpClient.GetAsync(apiUrl);
+                var handler = new HttpClientHandler
+                {
+                    ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; },
+                    UseProxy = true
+                };
+                var client = new HttpClient(handler);
+
+                var response = await client.GetAsync(apiUrl);
                 if (response.IsSuccessStatusCode)
                 {
                     var picture = new AnimalPicture { AnimalType = animalType, ImageUrl = apiUrl, CreatedDateTimeUtc = DateTime.UtcNow };
