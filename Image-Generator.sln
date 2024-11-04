@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageGenerator.Api", "ImageGenerator.Api\ImageGenerator.Api.csproj", "{947147FF-7D08-4431-9EEA-4E3B4A056C3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageGenerator.Api", "ImageGenerator.Api\ImageGenerator.Api.csproj", "{947147FF-7D08-4431-9EEA-4E3B4A056C3D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6F0FECE3-04A3-4156-B5D1-9C9865975A66}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{9E0764E5-A148-4274-B6A1-CC087436DBF2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{947147FF-7D08-4431-9EEA-4E3B4A056C3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{947147FF-7D08-4431-9EEA-4E3B4A056C3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{947147FF-7D08-4431-9EEA-4E3B4A056C3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E0764E5-A148-4274-B6A1-CC087436DBF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E0764E5-A148-4274-B6A1-CC087436DBF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E0764E5-A148-4274-B6A1-CC087436DBF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E0764E5-A148-4274-B6A1-CC087436DBF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{947147FF-7D08-4431-9EEA-4E3B4A056C3D} = {6F0FECE3-04A3-4156-B5D1-9C9865975A66}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A0C569A-3C66-4388-9648-E3BC07257D1D}
