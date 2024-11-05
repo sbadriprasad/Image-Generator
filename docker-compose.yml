@@ -1,9 +1,13 @@
 services:
   imagegenerator.api:
     image: ${DOCKER_REGISTRY-}imagegeneratorapi
+    container_name: imagegenerator.api
     build:
       context: .
       dockerfile: ImageGenerator.Api/Dockerfile
+    ports:
+     - "5000:5000"
+     - "5001:5001"
 
   imagegenerator.database:
      image: postgres:latest
