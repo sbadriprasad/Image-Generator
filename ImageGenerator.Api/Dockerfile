@@ -27,4 +27,9 @@ RUN dotnet publish "./ImageGenerator.Api.csproj" -c $BUILD_CONFIGURATION -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+
+#Copy dev certificate
+RUN mkdir -p /app/certificates
+COPY ImageGenerator.Api/Certificates/aspnetapp.pfx /app/certificates/
+
 ENTRYPOINT ["dotnet", "ImageGenerator.Api.dll"]

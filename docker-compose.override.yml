@@ -4,6 +4,10 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=5000
       - ASPNETCORE_HTTPS_PORTS=5001
+      #- ASPNETCORE_URLS= "https://+;http://+"
+      #- ASPNETCORE_Kestrel__Certificates__Default__Password= "Test1234"
+      #- ASPNETCORE_Kestrel__Certificates__Default__Path= "/app/certificates/aspnetapp.pfx"
+
     ports:
       - "8080"
       - "8081"
