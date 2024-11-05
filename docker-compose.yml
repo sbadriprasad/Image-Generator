@@ -20,7 +20,7 @@ services:
        - POSTGRES_USER=postgres
        - POSTGRES_PASSWORD=pddzusslQj
      volumes:
-      - ./.containers/imagegenerator-db:/var/lib/postgresqlnew/data
+      - ./.containers/imagegenerator-db:/var/lib/postgresql/data
      ports:
       - 5432:5432
      healthcheck:

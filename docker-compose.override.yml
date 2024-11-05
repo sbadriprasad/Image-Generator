@@ -1,16 +1,14 @@
 services:
   imagegenerator.api:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_HTTP_PORTS=5000
-      - ASPNETCORE_HTTPS_PORTS=5001
-      #- ASPNETCORE_URLS= "https://+;http://+"
-      #- ASPNETCORE_Kestrel__Certificates__Default__Password= "Test1234"
-      #- ASPNETCORE_Kestrel__Certificates__Default__Path= "/app/certificates/aspnetapp.pfx"
+      - ASPNETCORE_ENVIRONMENT=Development      
+      - ASPNETCORE_URLS= http://0.0.0.0:5000;https://0.0.0.0:5001
+      - ASPNETCORE_Kestrel__Certificates__Default__Path= /app/certificates/aspnetapp.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Password= Test1234      
 
     ports:
-      - "8080"
-      - "8081"
+      - "5000:5000"
+      - "5001:5001"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
